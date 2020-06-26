@@ -12,7 +12,7 @@ void selection_sort(int a[], int n){ //select an index and find the right candid
                 k=j; //move the pointers
             }
         }
-        Swap(&a[i], &a[k]); //replace the selected index with the found value
+        Swap(&a[i], &a[k]); //replace the selected index with the found value.
     }
 }
 
