@@ -4,6 +4,18 @@ void Swap(int *a, int *b){
     *a = *b;
     *b = temp;
 }
+void selection_sort(int a[], int n){ //select an index and find the right candidate for that index
+    int i,j,k;
+    for (i=0; i<n-1; i++) { //we started with index 0 i.e. smallest element will come to this index
+        for (j=k=i; j<n; j++) {
+            if (a[j]<a[k]) { //till we find the smallest element
+                k=j; //move the pointers
+            }
+        }
+        Swap(&a[i], &a[k]); //replace the selected index with the found value
+    }
+}
+
 void insertion_sort(int a[], int n){
     int i, j, x;
     for (i=1;i<n;i++) {
@@ -41,7 +53,8 @@ int main(int argc, const char * argv[]) {
     }
     printf("\n");
     //bubble_sort(A, n);
-    insertion_sort(A, n);
+    //insertion_sort(A, n);
+    selection_sort(A, n);
     for (int i = 0; i<n; i++) {
         printf("%d ", A[i]);
     }
