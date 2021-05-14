@@ -1,0 +1,15 @@
+/Users/hsingh/workspace/dataStructures/ds_hashing/Chaining/bin/Debug/net5.0/Chaining.deps.json
+/Users/hsingh/workspace/dataStructures/ds_hashing/Chaining/bin/Debug/net5.0/Chaining.runtimeconfig.json
+/Users/hsingh/workspace/dataStructures/ds_hashing/Chaining/bin/Debug/net5.0/Chaining.runtimeconfig.dev.json
+/Users/hsingh/workspace/dataStructures/ds_hashing/Chaining/bin/Debug/net5.0/Chaining.dll
+/Users/hsingh/workspace/dataStructures/ds_hashing/Chaining/bin/Debug/net5.0/ref/Chaining.dll
+/Users/hsingh/workspace/dataStructures/ds_hashing/Chaining/bin/Debug/net5.0/Chaining.pdb
+/Users/hsingh/workspace/dataStructures/ds_hashing/Chaining/obj/Debug/net5.0/Chaining.csprojAssemblyReference.cache
+/Users/hsingh/workspace/dataStructures/ds_hashing/Chaining/obj/Debug/net5.0/Chaining.GeneratedMSBuildEditorConfig.editorconfig
+/Users/hsingh/workspace/dataStructures/ds_hashing/Chaining/obj/Debug/net5.0/Chaining.AssemblyInfoInputs.cache
+/Users/hsingh/workspace/dataStructures/ds_hashing/Chaining/obj/Debug/net5.0/Chaining.AssemblyInfo.cs
+/Users/hsingh/workspace/dataStructures/ds_hashing/Chaining/obj/Debug/net5.0/Chaining.csproj.CoreCompileInputs.cache
+/Users/hsingh/workspace/dataStructures/ds_hashing/Chaining/obj/Debug/net5.0/Chaining.dll
+/Users/hsingh/workspace/dataStructures/ds_hashing/Chaining/obj/Debug/net5.0/ref/Chaining.dll
+/Users/hsingh/workspace/dataStructures/ds_hashing/Chaining/obj/Debug/net5.0/Chaining.pdb
+/Users/hsingh/workspace/dataStructures/ds_hashing/Chaining/obj/Debug/net5.0/Chaining.genruntimeconfig.cache
