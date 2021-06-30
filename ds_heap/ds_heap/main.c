@@ -12,11 +12,11 @@ void Insert(int H[], int n){
     H[i] = temp;
 }
 
-int Delete(int A[],  int n){
+void Delete(int A[],  int n){
     int i, j,x;
     x = A[n];
-    
 }
+
 int main(int argc, const char * argv[]) {
     int H[] = {0,2,5,8,9,4,10,7}; //ignore 0
     

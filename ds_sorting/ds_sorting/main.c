@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <limits.h>
 void Swap(int *a, int *b){
     int temp = *a;
     *a = *b;
@@ -45,16 +46,43 @@ void bubble_sort(int a[], int n){
         }
     }
 }
+
+int partition (int A[], int l, int h)
+{
+    int pivot = A[l];
+    int i = l, j = h;
+    do{
+        do{i++;} while(A[i] <= pivot);
+        do{j--;} while(A[j] > pivot);
+        if (i < j) {
+            Swap(&A[i], &A[j]);
+        }
+    }while(i < j);
+    Swap(&A[l], &A[j]);
+    return j;
+}
+
+void quick_sort(int A[], int low, int high)
+{
+    int j;
+    if (low < high) {
+        j = partition(A, low, high);
+        quick_sort(A, low, j);
+        quick_sort(A, j+1, high);
+    }
+}
+
 int main(int argc, const char * argv[]) {
-    int A[] = {3, 7, 9, 10, 11, 23, 12, 43, 20, 4};
-    int n = 10;
+    int A[] = {3, 7, 9, 10, 11, 23, 12, 43, 20, 4, INT32_MAX};
+    int n = 11;
     for (int i = 0; i<n; i++) {
         printf("%d ", A[i]);
     }
     printf("\n");
     //bubble_sort(A, n);
     //insertion_sort(A, n);
-    selection_sort(A, n);
+    //selection_sort(A, n);
+    quick_sort(A, 0, 10);
     for (int i = 0; i<n; i++) {
         printf("%d ", A[i]);
     }
