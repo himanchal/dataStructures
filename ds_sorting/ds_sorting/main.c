@@ -72,8 +72,47 @@ void quick_sort(int A[], int low, int high)
     }
 }
 
+void Merge(int A[], int low, int mid, int high)
+{
+    int i =low, j = mid + 1, k = low;
+    int B[100]; //auxilary array to be used for merging
+    while (i <= mid && j <= high) {
+        if(A[i] < A[j])
+            B[k++] = A[i++];
+        else
+            B[k++] = A[j++];
+    }
+    for (; i <= mid; i++) { // let's not re-initialize the counter again, because we copying the remaining elements
+        B[k++] = A[i];
+    }
+    for (; j <= high; j++) {// any of one loop will be executed
+        B[k++] = A[j];
+    }
+    //let's copy the elements back to main array from auxilary array
+    for (int i = low; i <= high; i++) {
+        A[i] = B[i];
+    }
+    
+}
+
+void merge_sort_iterative(int A[], int size)
+{
+    int p, low, mid, high;
+    for (p =2; p <= size; p = p *2) { // loop for passes
+        for (int i = 0; i + p - 1 < size; i = i + p) { // loop for merging all the list in a single pass
+            low = i;
+            high = i + p - 1;
+            mid = (low + high)/2;
+            Merge(A, low, mid, high);
+        }
+    }
+    if (p/2 < size) { // for left over elements
+        Merge(A, 0, p/2 - 1, size);
+    }
+}
+
 int main(int argc, const char * argv[]) {
-    int A[] = {3, 7, 9, 10, 11, 23, 12, 43, 20, 4, INT32_MAX};
+    int A[] = {30, 7, 9, 100, 11, 23, 12, 43, 20, 4, INT32_MAX};
     int n = 11;
     for (int i = 0; i<n; i++) {
         printf("%d ", A[i]);
@@ -82,7 +121,8 @@ int main(int argc, const char * argv[]) {
     //bubble_sort(A, n);
     //insertion_sort(A, n);
     //selection_sort(A, n);
-    quick_sort(A, 0, 10);
+    //quick_sort(A, 0, 10);
+    merge_sort_iterative(A, n);
     for (int i = 0; i<n; i++) {
         printf("%d ", A[i]);
     }
