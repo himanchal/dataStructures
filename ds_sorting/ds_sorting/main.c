@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <limits.h>
+#include <stdlib.h>
 void Swap(int *a, int *b){
     int temp = *a;
     *a = *b;
@@ -111,10 +112,58 @@ void merge_sort_iterative(int A[], int size)
     }
 }
 
+void merge_sort_recursive(int A[], int low, int high)
+{
+    int mid = 0;
+    if (low < high) {
+        mid = (low + high)/2;
+        merge_sort_recursive(A, low, mid);
+        merge_sort_recursive(A, mid + 1, high);
+        Merge(A, low, mid, high);
+    }
+}
+
+int find_max(int A[], int size)
+{
+    int max = INT32_MIN;
+    for (int i =0; i < size ; i++) {
+        if (A[i] > max) {
+            max = A[i];
+        }
+    }
+    return max;
+}
+
+void count_sort(int A[], int size)
+{
+    int i, j, *C;
+    int max = find_max(A, size);
+    /* create an auxiliary array. the size of this array would be equal as maximum
+     element of input array*/
+    C = (int *)malloc(sizeof(int) * (max +1));
+    //initialize all the elements of auxiliary array with 0 value.
+    for (i = 0; i < max +1 ; i++) {
+        C[i] = 0;
+    }
+    
+    for (i = 0; i < size; i++) {
+        C[A[i]]++; //increase the element whose index is matching with input array's element
+        //element of input array becomes the index of auxilary array
+    }
+    i = 0; j = 0;
+    //this loop is basically copying the array from auxilary array to input array back 
+    while (j < max +1) {
+        if (C[j] > 0) {
+            A[i++] = j;
+            C[j]--;
+        }else
+            j++;
+    }
+}
 int main(int argc, const char * argv[]) {
-    int A[] = {30, 7, 9, 100, 11, 23, 12, 43, 20, 4, INT32_MAX};
-    int n = 11;
-    for (int i = 0; i<n; i++) {
+    int A[] = {30, 7, 9, 100, 11, 23, 12, 43, 20, 4};
+    int size = 10;
+    for (int i = 0; i < size; i++) {
         printf("%d ", A[i]);
     }
     printf("\n");
@@ -122,8 +171,10 @@ int main(int argc, const char * argv[]) {
     //insertion_sort(A, n);
     //selection_sort(A, n);
     //quick_sort(A, 0, 10);
-    merge_sort_iterative(A, n);
-    for (int i = 0; i<n; i++) {
+    //merge_sort_iterative(A, n);
+    //merge_sort_recursive(A, 0, 9);
+    count_sort(A, size);
+    for (int i = 0; i < size; i++) {
         printf("%d ", A[i]);
     }
     printf("\n");
