@@ -151,7 +151,7 @@ void count_sort(int A[], int size)
         //element of input array becomes the index of auxilary array
     }
     i = 0; j = 0;
-    //this loop is basically copying the array from auxilary array to input array back 
+    //this loop is basically copying the array from auxilary array to input array back
     while (j < max +1) {
         if (C[j] > 0) {
             A[i++] = j;
@@ -160,6 +160,22 @@ void count_sort(int A[], int size)
             j++;
     }
 }
+
+void shell_sort(int A[], int size){
+    for (int gap = size/2; gap >= 1; gap /= 2) {
+        for (int i = gap; i < size ; i++) {
+            int temp = A[i];
+            int j = i - gap;
+            while (j >= 0 && A[j] > temp) {
+                A[j+gap] = A[j];
+                j = j - gap;
+            }
+            A[j+gap] = temp;
+        }
+    }
+    
+}
+
 int main(int argc, const char * argv[]) {
     int A[] = {30, 7, 9, 100, 11, 23, 12, 43, 20, 4};
     int size = 10;
@@ -173,7 +189,8 @@ int main(int argc, const char * argv[]) {
     //quick_sort(A, 0, 10);
     //merge_sort_iterative(A, n);
     //merge_sort_recursive(A, 0, 9);
-    count_sort(A, size);
+    //count_sort(A, size);
+    shell_sort(A, size);
     for (int i = 0; i < size; i++) {
         printf("%d ", A[i]);
     }
