@@ -11,7 +11,8 @@ int Probe(int hashTable[], int keyToBeInserted){
     int potentialIndex = GetHash(keyToBeInserted);
     int i = 0;
     while (hashTable[(potentialIndex + i)%SIZE] != 0) {
-        i++;
+        i++; // linear probing
+        // i = i *i; //quadratic probing, same goes with search operation
     }
     return (potentialIndex+i)%SIZE;
 }
