@@ -11,7 +11,7 @@
 
 void breadth_first_search(int graph[][7], int start, int n){
     int i = start;
-    //struct Queue q;
+    struct Queue_h q;
     int visitiedArray[7] = {0};
     printf("%d", i);// printing the starting vertex
     visitiedArray[i] = 1;
